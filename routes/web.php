@@ -65,3 +65,31 @@ Route::post('/register', function () {
 Route::post('/logout', function () {
     // Logic logout nanti disini
 })->name('logout');
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::get('/room', function () {
+        return view('admin.roomadmin');
+    });
+
+    Route::get('/booking', function () {
+        return view('admin.bookingadmin');
+    });
+
+    Route::get('/payment', function () {
+        return view('admin.paymentadmin');
+    });
+
+    Route::get('/messages', function () {
+        return view('admin.messagesadmin');
+    });
+
+    Route::get('/artikel', function () {
+        return view('admin.articleadmin');
+    });
+
+});

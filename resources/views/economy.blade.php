@@ -27,145 +27,145 @@
 </style>
 
 <!-- Hero Section -->
-<section class="room-detail-hero-bg relative h-[500px] md:h-[600px]">
+<section class="room-detail-hero-bg relative h-[350px] md:h-[450px]">
     <div class="container mx-auto px-6 h-full flex flex-col items-center justify-center text-center">
-        <h1 class="text-white text-5xl md:text-6xl font-bold mb-4">
+        <h1 class="text-white text-3xl md:text-4xl font-bold mb-3">
             Economy Room
         </h1>
-        <h2 class="text-white text-2xl md:text-3xl font-semibold mb-6">
-            Rp. 750.000 / Bulan
+        <h2 class="text-white text-xl md:text-2xl font-semibold mb-4">
+            Rp. 350.000 / Bulan
         </h2>
-        <a href="#book" class="bg-red-500 text-white px-12 py-3 rounded-full text-lg font-semibold hover:bg-red-600 transition">
+        <a href="#book" class="bg-red-500 text-white px-8 py-2.5 rounded-full text-base font-semibold hover:bg-red-600 transition">
             Book Now
         </a>
     </div>
 </section>
 
 <!-- Description Section -->
-<section class="py-8" style="background-color: #f7f7ff;">
+<section class="py-6" style="background-color: #f7f7ff;">
     <div class="container mx-auto px-6">
-        <p class="text-center text-red-500 text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
+        <p class="text-center text-red-500 text-base md:text-lg max-w-5xl mx-auto leading-relaxed">
             Pilihan hemat untuk hunian yang simple dan fungsional, cocok untuk budget terbatas tanpa mengorbankan kenyamanan dasar.
         </p>
     </div>
 </section>
 
 <!-- Content Section -->
-<section class="py-12" style="background-color: #f7f7ff;">
+<section class="py-10" style="background-color: #f7f7ff;">
     <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl mx-auto">
             
             <!-- Description and Facilities Box -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-red-400">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Description</h2>
-                <p class="text-gray-800 leading-relaxed mb-8 text-base">
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-400">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Description</h2>
+                <p class="text-gray-800 leading-relaxed mb-6 text-sm">
                     Economy Room adalah solusi hemat untuk kamu yang membutuhkan tempat tinggal dengan budget terbatas. Kamar ini menawarkan hunian yang simple namun tetap nyaman dengan fasilitas dasar yang memadai. Dilengkapi dengan tempat tidur, lemari kecil, dan ventilasi yang baik untuk sirkulasi udara. Sangat cocok untuk mahasiswa atau pekerja yang mengutamakan efisiensi biaya namun tetap menginginkan tempat tinggal yang bersih dan layak.
                 </p>
                 
-                <hr class="border-t-2 border-gray-300 my-8">
+                <hr class="border-t-2 border-gray-300 my-6">
                 
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Fasilitas</h2>
-                <ul class="space-y-2 text-gray-800 text-base">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Fasilitas</h2>
+                <ul class="space-y-2 text-gray-800 text-sm">
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Kamar mandi luar (sharing)</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Ventilasi udara</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Tempat tidur Single</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Lemari pakaian kecil</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Jendela</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="mr-3">•</span>
+                        <span class="mr-2">•</span>
                         <span>Stop kontak listrik</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Quick Info Box -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-red-400">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Quick Info</h2>
-                <ul class="space-y-3 text-gray-800 mb-8 text-base">
-                    <li class="flex items-start">
-                        <span class="mr-3">•</span>
-                        <span><strong>Harga:</strong> Rp 750.000 / Bulan</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="mr-3">•</span>
-                        <span><strong>Ukuran:</strong> 6 m²</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="mr-3">•</span>
-                        <span><strong>Kamar mandi:</strong> Luar (sharing)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="mr-3">•</span>
-                        <span><strong>Fasilitas Utama:</strong> Ventilasi, Tempat tidur</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="mr-3">•</span>
-                        <span><strong>Kapasitas:</strong> 1 orang</span>
-                    </li>
-                </ul>
-                <div class="flex justify-center">
-                    <a href="#book" class="inline-block bg-red-500 text-white px-12 py-3 rounded-lg text-lg font-semibold hover:bg-red-600 transition">
-                        Book Now
-                    </a>
-                </div>
-            </div>
+<div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-400 self-start">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Quick Info</h2>
+    <ul class="space-y-2.5 text-gray-800 mb-6 text-sm">
+        <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span><strong>Harga:</strong> Rp 350.000 / Bulan</span>
+        </li>
+        <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span><strong>Ukuran:</strong> 6 m²</span>
+        </li>
+        <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span><strong>Kamar mandi:</strong> Luar (sharing)</span>
+        </li>
+        <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span><strong>Fasilitas Utama:</strong> Ventilasi, Tempat tidur</span>
+        </li>
+        <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span><strong>Kapasitas:</strong> 1 orang</span>
+        </li>
+    </ul>
+    <div class="flex justify-center">
+        <a href="#book" class="inline-block bg-red-500 text-white px-8 py-2.5 rounded-lg text-base font-semibold hover:bg-red-600 transition">
+            Book Now
+        </a>
+    </div>
+</div>
 
         </div>
     </div>
 </section>
 
 <!-- Gallery Section with Carousel -->
-<section class="py-16" style="background-color: #f7f7ff;">
+<section class="py-12" style="background-color: #f7f7ff;">
     <div class="container mx-auto px-6">
         <div class="max-w-6xl mx-auto">
             <div class="relative carousel-container rounded-2xl overflow-hidden shadow-2xl">
                 <div class="carousel-track" id="carouselTrack">
                     <!-- Slide 1 -->
                     <div class="carousel-slide">
-                        <img src="{{ asset('assets/economyroom.png') }}" alt="Economy Room 1" class="w-full h-[500px] md:h-[600px] object-cover">
+                        <img src="{{ asset('assets/economyroom.png') }}" alt="Economy Room 1" class="w-full h-[350px] md:h-[450px] object-cover">
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-slide">
-                        <img src="{{ asset('assets/economy2.png') }}" alt="Economy Room 2" class="w-full h-[500px] md:h-[600px] object-cover">
+                        <img src="{{ asset('assets/economy2.png') }}" alt="Economy Room 2" class="w-full h-[350px] md:h-[450px] object-cover">
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-slide">
-                        <img src="{{ asset('assets/economy3.png') }}" alt="Economy Room 3" class="w-full h-[500px] md:h-[600px] object-cover">
+                        <img src="{{ asset('assets/economy3.png') }}" alt="Economy Room 3" class="w-full h-[350px] md:h-[450px] object-cover">
                     </div>
                 </div>
                 
                 <!-- Navigation Arrows -->
-                <button onclick="prevSlide()" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition z-10">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition z-10">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
 
                 <!-- Indicators -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-                    <button onclick="goToSlide(0)" class="indicator w-3 h-3 rounded-full bg-white transition"></button>
-                    <button onclick="goToSlide(1)" class="indicator w-3 h-3 rounded-full bg-white/50 transition"></button>
-                    <button onclick="goToSlide(2)" class="indicator w-3 h-3 rounded-full bg-white/50 transition"></button>
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                    <button onclick="goToSlide(0)" class="indicator w-2.5 h-2.5 rounded-full bg-white transition"></button>
+                    <button onclick="goToSlide(1)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 transition"></button>
+                    <button onclick="goToSlide(2)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 transition"></button>
                 </div>
             </div>
         </div>
@@ -213,7 +213,7 @@ function goToSlide(index) {
 }
 
 function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 4000); // Auto slide setiap 4 detik
+    autoSlideInterval = setInterval(nextSlide, 2500); // Auto slide setiap 2.5 detik
 }
 
 function resetAutoSlide() {
