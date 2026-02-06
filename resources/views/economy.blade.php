@@ -35,7 +35,7 @@
         <h2 class="text-white text-xl md:text-2xl font-semibold mb-4">
             Rp. 350.000 / Bulan
         </h2>
-        <a href="#book" class="bg-red-500 text-white px-8 py-2.5 rounded-full text-base font-semibold hover:bg-red-600 transition">
+        <a href="{{ route('booking', ['room' => 'economy']) }}" class="bg-red-500 text-white px-8 py-2.5 rounded-full text-base font-semibold hover:bg-red-600 transition">
             Book Now
         </a>
     </div>
@@ -119,7 +119,7 @@
         </li>
     </ul>
     <div class="flex justify-center">
-        <a href="#book" class="inline-block bg-red-500 text-white px-8 py-2.5 rounded-lg text-base font-semibold hover:bg-red-600 transition">
+        <a href="{{ route('booking', ['room' => 'economy']) }}" class="inline-block bg-red-500 text-white px-8 py-2.5 rounded-lg text-base font-semibold hover:bg-red-600 transition">
             Book Now
         </a>
     </div>

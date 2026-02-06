@@ -1,4 +1,4 @@
-<aside class="w-64 bg-black text-white absolute top-0 left-0 flex flex-col" style="min-height: 100%; padding-bottom: 0;">
+<aside class="w-64 bg-black text-white fixed top-0 left-0 flex flex-col" style="min-height: 100vh; height: auto;">
     <!-- Logo -->
     <div class="px-6 py-8 border-b border-gray-800 flex justify-center items-center">
         <img src="{{ asset('assets/logo-putih.png') }}" alt="KAZ ROOMS" class="h-16 w-auto">

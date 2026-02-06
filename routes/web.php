@@ -26,9 +26,65 @@ Route::get('/room/economy', function () {
     return view('economy');
 })->name('room.economy');
 
-// Booking Page
+// Booking Page - UPDATED: Terima parameter room type
 Route::get('/booking', function () {
-    return view('booking');
+    $roomType = request()->query('room');
+    
+    // Data kamar berdasarkan tipe
+    $rooms = [
+        'deluxe' => [
+            'name' => 'Deluxe Room',
+            'price' => 1500000,
+            'image' => 'assets/bannerutama.png',
+            'size' => '12 m²',
+            'bathroom' => 'dalam',
+            'facilities' => [
+                'Kamar mandi dalam',
+                'AC',
+                'Air panas (water heater)',
+                'Tempat tidur Queen Size',
+                'Lemari pakaian ukuran besar',
+                'Meja kerja lebih luas'
+            ]
+        ],
+        'standard' => [
+            'name' => 'Standard Room',
+            'price' => 700000,
+            'image' => 'assets/standardroom.png',
+            'size' => '8 m²',
+            'bathroom' => 'Luar (sharing)',
+            'facilities' => [
+                'Kamar mandi luar (sharing)',
+                'Kipas angin',
+                'Tempat tidur Single',
+                'Lemari pakaian',
+                'Meja belajar',
+                'Jendela untuk sirkulasi udara'
+            ]
+        ],
+        'economy' => [
+            'name' => 'Economy Room',
+            'price' => 350000,
+            'image' => 'assets/economyroom.png',
+            'size' => '6 m²',
+            'bathroom' => 'Luar (sharing)',
+            'facilities' => [
+                'Kamar mandi luar (sharing)',
+                'Ventilasi udara',
+                'Tempat tidur Single',
+                'Lemari pakaian kecil',
+                'Jendela',
+                'Stop kontak listrik'
+            ]
+        ]
+    ];
+    
+    $selectedRoom = null;
+    if ($roomType && isset($rooms[$roomType])) {
+        $selectedRoom = $rooms[$roomType];
+    }
+    
+    return view('booking', compact('selectedRoom'));
 })->name('booking');
 
 // Payment Page
@@ -92,4 +148,7 @@ Route::prefix('admin')->group(function () {
         return view('admin.articleadmin');
     });
 
+    Route::get('/tenant', function () {
+        return view('admin.tenantsadmin');
+    });
 });

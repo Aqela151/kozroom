@@ -2,8 +2,6 @@
 @section('content')
 <div class="min-h-screen" style="background-color: #f7f7ff;">
     <div class="flex">
-      
-
         <!-- Main Content -->
         <div class="flex-1 p-8">
             <!-- Header -->
@@ -28,7 +26,7 @@
                         <h2 class="text-2xl font-bold text-black">Articles Management</h2>
                         <p class="text-gray-600 text-sm mt-1">Kelola Artikel dan Informasi Kos</p>
                     </div>
-                    <button class="text-white font-semibold py-3 px-8 rounded-lg flex items-center gap-2" style="background-color: #FB4448;">
+                    <button class="text-white font-semibold py-3 px-8 rounded-lg flex items-center gap-2" style="background-color: #FB4448;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
@@ -43,6 +41,7 @@
                 <div class="md:col-span-6">
                     <input 
                         type="text" 
+                        id="searchInput"
                         placeholder="Cari berdasarkan judul artikel" 
                         class="w-full px-6 py-3 rounded-full focus:outline-none text-sm"
                         style="background-color: #ffffff; border: 2px solid #FB4448;"
@@ -51,20 +50,20 @@
 
                 <!-- Status Filter -->
                 <div class="md:col-span-3">
-                    <select class="w-full px-6 py-3 rounded-lg focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border: 2px solid #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
-                        <option>Status</option>
-                        <option>Published</option>
-                        <option>Draft</option>
+                    <select id="statusFilter" class="w-full px-6 py-3 rounded-lg focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border: 2px solid #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
+                        <option value="">All Status</option>
+                        <option value="Published">Published</option>
+                        <option value="Draft">Draft</option>
                     </select>
                 </div>
 
                 <!-- Kategori Filter -->
                 <div class="md:col-span-3">
-                    <select class="w-full px-6 py-3 rounded-lg focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border: 2px solid #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
-                        <option>Kategori</option>
-                        <option>Info</option>
-                        <option>Tips</option>
-                        <option>Pengumuman</option>
+                    <select id="categoryFilter" class="w-full px-6 py-3 rounded-lg focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border: 2px solid #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
+                        <option value="">All Categories</option>
+                        <option value="Info">Info</option>
+                        <option value="Tips">Tips</option>
+                        <option value="Pengumuman">Pengumuman</option>
                     </select>
                 </div>
             </div>
@@ -87,8 +86,8 @@
                                 <th class="py-3 px-4 text-left font-bold">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
+                        <tbody id="articleTableBody" class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50" data-id="ART - 001" data-title="Tips cari kos nyaman" data-category="Info" data-date="2027-01-12" data-status="Published">
                                 <td class="py-3 px-4 font-medium">ART - 001</td>
                                 <td class="py-3 px-4">Tips cari kos nyaman</td>
                                 <td class="py-3 px-4">Info</td>
@@ -98,18 +97,18 @@
                                 </td>
                                 <td class="py-3 px-4">
                                     <div class="flex gap-2">
-                                        <button class="text-blue-500 hover:text-blue-700">
+                                        <button class="text-blue-500 hover:text-blue-700" title="View">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                             </svg>
                                         </button>
-                                        <button class="text-yellow-500 hover:text-yellow-700">
+                                        <button class="text-yellow-500 hover:text-yellow-700" title="Edit">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                                             </svg>
                                         </button>
-                                        <button class="text-red-500 hover:text-red-700">
+                                        <button class="text-red-500 hover:text-red-700" title="Delete">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
                                             </svg>
@@ -117,7 +116,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50">
+                            <tr class="hover:bg-gray-50" data-id="ART - 002" data-title="5 cara hemat tinggal di kos" data-category="Tips" data-date="2027-02-20" data-status="Draft">
                                 <td class="py-3 px-4 font-medium">ART - 002</td>
                                 <td class="py-3 px-4">5 cara hemat tinggal di kos</td>
                                 <td class="py-3 px-4">Tips</td>
@@ -127,18 +126,18 @@
                                 </td>
                                 <td class="py-3 px-4">
                                     <div class="flex gap-2">
-                                        <button class="text-blue-500 hover:text-blue-700">
+                                        <button class="text-blue-500 hover:text-blue-700" title="View">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                             </svg>
                                         </button>
-                                        <button class="text-yellow-500 hover:text-yellow-700">
+                                        <button class="text-yellow-500 hover:text-yellow-700" title="Edit">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                                             </svg>
                                         </button>
-                                        <button class="text-red-500 hover:text-red-700">
+                                        <button class="text-red-500 hover:text-red-700" title="Delete">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
                                             </svg>
@@ -146,7 +145,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50">
+                            <tr class="hover:bg-gray-50" data-id="ART - 003" data-title="Pengumuman renovasi gedung" data-category="Pengumuman" data-date="2027-03-10" data-status="Published">
                                 <td class="py-3 px-4 font-medium">ART - 003</td>
                                 <td class="py-3 px-4">Pengumuman renovasi gedung</td>
                                 <td class="py-3 px-4">Pengumuman</td>
@@ -156,18 +155,18 @@
                                 </td>
                                 <td class="py-3 px-4">
                                     <div class="flex gap-2">
-                                        <button class="text-blue-500 hover:text-blue-700">
+                                        <button class="text-blue-500 hover:text-blue-700" title="View">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                             </svg>
                                         </button>
-                                        <button class="text-yellow-500 hover:text-yellow-700">
+                                        <button class="text-yellow-500 hover:text-yellow-700" title="Edit">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                                             </svg>
                                         </button>
-                                        <button class="text-red-500 hover:text-red-700">
+                                        <button class="text-red-500 hover:text-red-700" title="Delete">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
                                             </svg>
@@ -175,7 +174,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50">
+                            <tr class="hover:bg-gray-50" data-id="ART - 004" data-title="Aturan baru penghuni kos" data-category="Info" data-date="2027-03-13" data-status="Published">
                                 <td class="py-3 px-4 font-medium">ART - 004</td>
                                 <td class="py-3 px-4">Aturan baru penghuni kos</td>
                                 <td class="py-3 px-4">Info</td>
@@ -185,18 +184,18 @@
                                 </td>
                                 <td class="py-3 px-4">
                                     <div class="flex gap-2">
-                                        <button class="text-blue-500 hover:text-blue-700">
+                                        <button class="text-blue-500 hover:text-blue-700" title="View">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                             </svg>
                                         </button>
-                                        <button class="text-yellow-500 hover:text-yellow-700">
+                                        <button class="text-yellow-500 hover:text-yellow-700" title="Edit">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                                             </svg>
                                         </button>
-                                        <button class="text-red-500 hover:text-red-700">
+                                        <button class="text-red-500 hover:text-red-700" title="Delete">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
                                             </svg>
@@ -206,6 +205,12 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- No Results Message -->
+                <div id="noResults" class="hidden text-center py-8 text-gray-500">
+                    <p class="text-lg font-semibold">Tidak ada artikel yang ditemukan</p>
+                    <p class="text-sm mt-2">Coba ubah kriteria pencarian atau filter Anda</p>
                 </div>
 
                 <!-- Pagination -->
@@ -224,4 +229,61 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const statusFilter = document.getElementById('statusFilter');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const articleTableBody = document.getElementById('articleTableBody');
+    const noResults = document.getElementById('noResults');
+    
+    // Get all article rows
+    let allRows = Array.from(articleTableBody.getElementsByTagName('tr'));
+    
+    // Function to filter articles
+    function filterArticles() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedStatus = statusFilter.value;
+        const selectedCategory = categoryFilter.value;
+        
+        let visibleRows = allRows.filter(row => {
+            const articleId = row.getAttribute('data-id').toLowerCase();
+            const title = row.getAttribute('data-title').toLowerCase();
+            const category = row.getAttribute('data-category');
+            const status = row.getAttribute('data-status');
+            
+            // Search filter (check ID or title)
+            const matchesSearch = articleId.includes(searchTerm) || 
+                                title.includes(searchTerm);
+            
+            // Status filter
+            const matchesStatus = !selectedStatus || status === selectedStatus;
+            
+            // Category filter
+            const matchesCategory = !selectedCategory || category === selectedCategory;
+            
+            return matchesSearch && matchesStatus && matchesCategory;
+        });
+        
+        // Clear table body
+        articleTableBody.innerHTML = '';
+        
+        // Show filtered rows
+        if (visibleRows.length > 0) {
+            visibleRows.forEach(row => {
+                articleTableBody.appendChild(row);
+            });
+            noResults.classList.add('hidden');
+        } else {
+            noResults.classList.remove('hidden');
+        }
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', filterArticles);
+    statusFilter.addEventListener('change', filterArticles);
+    categoryFilter.addEventListener('change', filterArticles);
+});
+</script>
 @endsection

@@ -21,19 +21,19 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div class="p-6 rounded-lg border-2" style="border-color: #FB4448; background-color: #ffffff;">
                 <p class="text-black text-base font-semibold mb-2">Total Rooms</p>
-                <h2 class="text-5xl font-bold">20</h2>
+                <h2 class="text-5xl font-bold" id="totalRooms">20</h2>
             </div>
             <div class="p-6 rounded-lg border-2" style="border-color: #FB4448; background-color: #ffffff;">
                 <p class="text-black text-base font-semibold mb-2">Available</p>
-                <h2 class="text-5xl font-bold">3</h2>
+                <h2 class="text-5xl font-bold" id="availableRooms">3</h2>
             </div>
             <div class="p-6 rounded-lg border-2" style="border-color: #FB4448; background-color: #ffffff;">
                 <p class="text-black text-base font-semibold mb-2">Occupied</p>
-                <h2 class="text-5xl font-bold">15</h2>
+                <h2 class="text-5xl font-bold" id="occupiedRooms">15</h2>
             </div>
             <div class="p-6 rounded-lg border-2" style="border-color: #FB4448; background-color: #ffffff;">
                 <p class="text-black text-base font-semibold mb-2">Maintenance</p>
-                <h2 class="text-5xl font-bold">2</h2>
+                <h2 class="text-5xl font-bold" id="maintenanceRooms">2</h2>
             </div>
         </div>
 
@@ -43,6 +43,7 @@
             <div class="md:col-span-3">
                 <input 
                     type="text" 
+                    id="searchInput"
                     placeholder="Search Rooms..." 
                     class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm" 
                     style="background-color: #ffffff; border-color: #FB4448;"
@@ -51,30 +52,30 @@
 
             <!-- Type Filter -->
             <div>
-                <select class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
-                    <option>Type</option>
-                    <option>Deluxe</option>
-                    <option>Standard</option>
-                    <option>Economy</option>
+                <select id="typeFilter" class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
+                    <option value="">All Types</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Economy">Economy</option>
                 </select>
             </div>
 
             <!-- Status Filter -->
             <div>
-                <select class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
-                    <option>Status</option>
-                    <option>Available</option>
-                    <option>Occupied</option>
-                    <option>Maintenance</option>
+                <select id="statusFilter" class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
+                    <option value="">All Status</option>
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Maintenance">Maintenance</option>
                 </select>
             </div>
 
             <!-- Price Filter -->
             <div>
-                <select class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
-                    <option>Price</option>
-                    <option>Low to High</option>
-                    <option>High to Low</option>
+                <select id="priceFilter" class="w-full px-6 py-3 border-2 rounded-full focus:outline-none text-sm font-semibold appearance-none" style="background-color: #ffffff; border-color: #FB4448; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;">
+                    <option value="">Sort by Price</option>
+                    <option value="low">Low to High</option>
+                    <option value="high">High to Low</option>
                 </select>
             </div>
         </div>
@@ -102,8 +103,8 @@
                             <th class="py-3 px-4 text-left font-bold">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
+                    <tbody id="roomTableBody" class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50" data-room="20" data-type="Deluxe" data-price="1500000" data-status="Available">
                             <td class="py-3 px-4 font-medium">20</td>
                             <td class="py-3 px-4">Deluxe</td>
                             <td class="py-3 px-4">Rp. 1.500.000</td>
@@ -131,7 +132,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-room="19" data-type="Economy" data-price="350000" data-status="Occupied">
                             <td class="py-3 px-4 font-medium">19</td>
                             <td class="py-3 px-4">Economy</td>
                             <td class="py-3 px-4">Rp. 350.000</td>
@@ -159,7 +160,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-room="18" data-type="Standard" data-price="700000" data-status="Maintenance">
                             <td class="py-3 px-4 font-medium">18</td>
                             <td class="py-3 px-4">Standard</td>
                             <td class="py-3 px-4">Rp. 700.000</td>
@@ -187,7 +188,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-room="17" data-type="Standard" data-price="700000" data-status="Occupied">
                             <td class="py-3 px-4 font-medium">17</td>
                             <td class="py-3 px-4">Standard</td>
                             <td class="py-3 px-4">Rp. 700.000</td>
@@ -198,7 +199,7 @@
                                 <div class="flex gap-2">
                                     <button class="text-blue-500 hover:text-blue-700">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M10 12a2 0 100-4 2 2 0 000 4z"/>
+                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                             <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                         </svg>
                                     </button>
@@ -215,7 +216,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-room="16" data-type="Deluxe" data-price="1500000" data-status="Available">
                             <td class="py-3 px-4 font-medium">16</td>
                             <td class="py-3 px-4">Deluxe</td>
                             <td class="py-3 px-4">Rp. 1.500.000</td>
@@ -247,6 +248,12 @@
                 </table>
             </div>
 
+            <!-- No Results Message -->
+            <div id="noResults" class="hidden text-center py-8 text-gray-500">
+                <p class="text-lg font-semibold">Tidak ada kamar yang ditemukan</p>
+                <p class="text-sm mt-2">Coba ubah kriteria pencarian atau filter Anda</p>
+            </div>
+
             <!-- Pagination -->
             <div class="mt-6 flex justify-end items-center gap-3">
                 <button class="w-10 h-10 flex items-center justify-center border-2 rounded-lg hover:bg-red-50 font-bold" style="border-color: #FB4448; color: #FB4448;">
@@ -262,4 +269,104 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const roomTableBody = document.getElementById('roomTableBody');
+    const noResults = document.getElementById('noResults');
+    
+    // Get all room rows
+    let allRows = Array.from(roomTableBody.getElementsByTagName('tr'));
+    
+    // Function to filter and sort rooms
+    function filterAndSortRooms() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedType = typeFilter.value;
+        const selectedStatus = statusFilter.value;
+        const selectedPriceSort = priceFilter.value;
+        
+        // Filter rows
+        let visibleRows = allRows.filter(row => {
+            const roomNumber = row.getAttribute('data-room').toLowerCase();
+            const roomType = row.getAttribute('data-type');
+            const roomStatus = row.getAttribute('data-status');
+            
+            // Search filter
+            const matchesSearch = roomNumber.includes(searchTerm) || 
+                                roomType.toLowerCase().includes(searchTerm);
+            
+            // Type filter
+            const matchesType = !selectedType || roomType === selectedType;
+            
+            // Status filter
+            const matchesStatus = !selectedStatus || roomStatus === selectedStatus;
+            
+            return matchesSearch && matchesType && matchesStatus;
+        });
+        
+        // Sort by price if selected
+        if (selectedPriceSort) {
+            visibleRows.sort((a, b) => {
+                const priceA = parseInt(a.getAttribute('data-price'));
+                const priceB = parseInt(b.getAttribute('data-price'));
+                
+                if (selectedPriceSort === 'low') {
+                    return priceA - priceB;
+                } else if (selectedPriceSort === 'high') {
+                    return priceB - priceA;
+                }
+                return 0;
+            });
+        }
+        
+        // Clear table body
+        roomTableBody.innerHTML = '';
+        
+        // Show filtered and sorted rows
+        if (visibleRows.length > 0) {
+            visibleRows.forEach(row => {
+                roomTableBody.appendChild(row);
+            });
+            noResults.classList.add('hidden');
+        } else {
+            noResults.classList.remove('hidden');
+        }
+        
+        // Update stats
+        updateStats(visibleRows);
+    }
+    
+    // Function to update statistics
+    function updateStats(rows) {
+        let available = 0;
+        let occupied = 0;
+        let maintenance = 0;
+        
+        rows.forEach(row => {
+            const status = row.getAttribute('data-status');
+            if (status === 'Available') available++;
+            else if (status === 'Occupied') occupied++;
+            else if (status === 'Maintenance') maintenance++;
+        });
+        
+        document.getElementById('totalRooms').textContent = rows.length;
+        document.getElementById('availableRooms').textContent = available;
+        document.getElementById('occupiedRooms').textContent = occupied;
+        document.getElementById('maintenanceRooms').textContent = maintenance;
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', filterAndSortRooms);
+    typeFilter.addEventListener('change', filterAndSortRooms);
+    statusFilter.addEventListener('change', filterAndSortRooms);
+    priceFilter.addEventListener('change', filterAndSortRooms);
+    
+    // Initialize stats
+    updateStats(allRows);
+});
+</script>
 @endsection
